@@ -8,7 +8,7 @@ var triangler = function(input) {
   var c = input[2];
 
   //checks if a triangle cannot be formed
-  if((a + b) <= c){
+  if( ((a + b) <= c) || ((a + c) <= b) || ((b + c) <= a)){
     return "Invalid Input";
   }
 
@@ -23,11 +23,12 @@ var triangler = function(input) {
   }
 
   //checks for right triangle
+  //isosceles right triangle cannot be made with integer inputs
   if( ((a*a) + (b*b))  === (c*c) ) {
-    return "Right";
+    return "Scalene Right";
   }
 
-  //all remaining triangles will br scalene
+  //all remaining triangles will be scalene
   return "Scalene";
 
 };
@@ -45,16 +46,16 @@ $(document).ready(function() {
     if(outcome === "Equilateral") {
       $("#output").text("an Equilateral triangle");
     }
-    if(outcome === "Isosceles") {
+    else if(outcome === "Isosceles") {
       $("#output").text("an Isosceles triangle");
     }
-    if(outcome === "Scalene") {
+    else if(outcome === "Scalene") {
       $("#output").text("a Scalene triangle");
     }
-    if(outcome === "Right") {
-      $("#output").text("a Right triangle");
+    else if(outcome === "Scalene Right") {
+      $("#output").text("a Scalene Right triangle");
     }
-    if(outcome === "Invalid Input") {
+    else if(outcome === "Invalid Input") {
       $("#output").text("not a valid triangle");
     }
 

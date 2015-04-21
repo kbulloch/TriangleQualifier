@@ -1,14 +1,22 @@
 var triangler = function(input) {
 
-  input.sort(); //sorts input for lowest to highest
+  function sortNumbers(a, b) {
+    return a - b;
+  }
+
+  input.sort(sortNumbers); //sorts input for lowest to highest
 
   //define a b and c as side lengths from inputs
   var a = input[0];
   var b = input[1];
   var c = input[2];
 
+  console.log(a);
+  console.log(b);
+  console.log(c);
+
   //checks if a triangle cannot be formed
-  if( ((a + b) <= c) || ((a + c) <= b) || ((b + c) <= a)){
+  if((a + b) <= c){
     return "Invalid Input";
   }
 
